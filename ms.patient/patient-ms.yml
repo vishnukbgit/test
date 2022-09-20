@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patient-ms
+  labels:
+    app: patient-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patient-ms
+  template:
+    metadata:
+      labels:
+        app: patient-ms
+    spec:
+      containers:
+        - name: patient-ms
+          image: 365956504116.dkr.ecr.ap-southeast-2.amazonaws.com/patient-microservice
+          env:
+            - name: PG_USERNAME
+              value: 'edwin'
+            - name: PG_PASSWORD
+              value: 'shenron'
+            - name: PG_HOST
+              value: '54.252.188.4'
+            - name: PG_PORT
+              value: "5432"
+            - name: DATABASE
+              value: 'gessit'
+          # ports:
+          #   - containerPort: 3002
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: patient-ms
+spec:
+  selector:
+    app: patient-ms
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3002

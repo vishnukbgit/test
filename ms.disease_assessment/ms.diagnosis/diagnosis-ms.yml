@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: diagnosis-ms
+  labels:
+    app: diagnosis-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: diagnosis-ms
+  template:
+    metadata:
+      labels:
+        app: diagnosis-ms
+    spec:
+      containers:
+        - name: diagnosis-ms
+          image: 365956504116.dkr.ecr.ap-southeast-2.amazonaws.com/diagnosis-microservice
+          env:
+            - name: PG_USERNAME
+              value: 'edwin'
+            - name: PG_PASSWORD
+              value: 'shenron'
+            - name: PG_HOST
+              value: '54.252.188.4'
+            - name: PG_PORT
+              value: "5432"
+            - name: DATABASE
+              value: 'gessit'
+          # ports:
+          #   - containerPort: 3003
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: diagnosis-ms
+spec:
+  selector:
+    app: diagnosis-ms
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3003

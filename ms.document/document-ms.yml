@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: document-ms
+  labels:
+    app: document-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: document-ms
+  template:
+    metadata:
+      labels:
+        app: document-ms
+    spec:
+      containers:
+        - name: document-ms
+          image: 365956504116.dkr.ecr.ap-southeast-2.amazonaws.com/document-microservice
+          env:
+            - name: PG_USERNAME
+              value: 'edwin'
+            - name: PG_PASSWORD
+              value: 'shenron'
+            - name: PG_HOST
+              value: '54.252.188.4'
+            - name: PG_PORT
+              value: "5432"
+            - name: DATABASE
+              value: 'gessit'
+          # ports:
+          #   - containerPort: 3013
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: document-ms
+spec:
+  selector:
+    app: document-ms
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3013

@@ -1,0 +1,67 @@
+{
+  "name": "ms.patient",
+  "private": true,
+  "version": "0.3.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "dependencies": {
+    "@sailshq/upgrade": "^1.0.9",
+    "@types/node": "^7.0.3",
+    "ajv": "^4.11.3",
+    "async": "2.1.4",
+    "core-js": "^2.4.1",
+    "ejs": "2.5.5",
+    "app-root-path": "^3.1.0",
+
+    "express": "^4.15.0",
+    "grunt": "1.0.1",
+    "grunt-contrib-clean": "1.0.0",
+    "grunt-contrib-coffee": "1.0.0",
+    "grunt-contrib-concat": "1.0.1",
+    "grunt-contrib-copy": "1.0.0",
+    "grunt-contrib-cssmin": "1.0.2",
+    "grunt-contrib-jst": "1.0.0",
+    "grunt-contrib-less": "1.4.0",
+    "grunt-contrib-uglify": "2.1.0",
+    "grunt-contrib-watch": "1.0.0",
+    "grunt-sails-linker": "~1.0.4",
+    "grunt-sync": "0.6.2",
+    "include-all": "^3.0.1",
+    "jasmine": "^2.5.3",
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1",
+    "random-number-generator": "^1.0.2",
+    "rc": "1.1.6",
+    "reflect": "^0.1.3",
+    "reflect-metadata": "^0.1.9",
+    "rxjs": "5.1.0",
+    "sails": "^1.5.2",
+    "sails-disk": "^2.1.1",
+    "sails-hook-grunt": "^1.0.8",
+    "@steera/sails-hook-orm": "^4.0.2",
+    "sails-hook-sockets": "^1.5.5",
+    "stack-trace": "0.0.10",
+    "systemjs": "^0.20.7",
+    "uuid": "^3.0.1",
+    "uuidv4": "^6.2.13",
+    "winston": "^3.7.2",
+    "winston-daily-rotate-file": "^4.7.1",
+    "cls-rtracer": "^2.6.2",
+    "sails-postgresql": "^2.0.0",
+    "zone.js": "^0.7.6"
+  },
+  "scripts": {
+    "debug": "node debug app.js",
+    "start": "node app.js"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikkel/ms.patient.git"
+  },
+  "author": "mikkel",
+  "license": "",
+  "devDependencies": {
+    "grunt": "^1.0.1"
+  }
+}

@@ -1,0 +1,27 @@
+██████╗ ███████╗██████╗  ██████╗ ██████╗ ████████╗
+██╔══██╗██╔════╝██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝
+██████╔╝█████╗  ██████╔╝██║   ██║██████╔╝   ██║   
+██╔══██╗██╔══╝  ██╔═══╝ ██║   ██║██╔══██╗   ██║   
+██║  ██║███████╗██║     ╚██████╔╝██║  ██║   ██║   
+╚═╝  ╚═╝╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   
+                                                  
+==================================================
+
+This report highlights various issues that may need to be addressed before your app will work with Sails 1.0.
+After implementing these suggestions, some good next steps are:
+* Address the issues in this report, and run the updater again with --reportOnly to regenerate the report.
+  Repeat until there are no more issues!
+* Review the full migration guide at: https://github.com/balderdashy/sails-docs/blob/1.0/upgrading/To1.0.md
+* Attempt to lift and run your app with Sails 1.0.
+* See http://sailsjs.com/support for support options!
+
+
+┌┬┐┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐  ┌─┐┌─┐┌┐┌┌─┐┬┌─┐
+ ││├─┤ │ ├─┤├┴┐├─┤└─┐├┤   │  │ ││││├┤ ││ ┬
+─┴┘┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘  └─┘└─┘┘└┘└  ┴└─┘
+
+In Sails 1.0, the `connections` config has been replaced with `datastores`,
+and the `models.connection` config has been replaced with `models.datastore`.
+It looks like there are still some config files that need to be changed:
+
+* In config/env/development.js:24, change `connections:` to `datastores:`

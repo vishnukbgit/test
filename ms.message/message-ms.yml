@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: message-ms
+  labels:
+    app: message-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: message-ms
+  template:
+    metadata:
+      labels:
+        app: message-ms
+    spec:
+      containers:
+        - name: message-ms
+          image: 365956504116.dkr.ecr.ap-southeast-2.amazonaws.com/message-microservice
+          env:
+            - name: PG_USERNAME
+              value: 'edwin'
+            - name: PG_PASSWORD
+              value: 'shenron'
+            - name: PG_HOST
+              value: '54.252.188.4'
+            - name: PG_PORT
+              value: "5432"
+            - name: DATABASE
+              value: 'gessit'
+          # ports:
+          #   - containerPort: 3001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: message-ms
+spec:
+  selector:
+    app: message-ms
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3001
