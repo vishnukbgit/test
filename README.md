@@ -1,0 +1,1 @@
+[![Build status](https://dev.azure.com/factweavers-devops/Pingar%20Content%20Insights/_apis/build/status/PCI-Frontend-Dev-CI)](https://dev.azure.com/factweavers-devops/Pingar%20Content%20Insights/_build/latest?definitionId=3)
